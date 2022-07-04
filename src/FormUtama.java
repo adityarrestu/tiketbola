@@ -934,6 +934,12 @@ public class FormUtama extends javax.swing.JFrame {
             .addGap(0, 525, Short.MAX_VALUE)
         );
 
+        jPanel9.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt){
+                jPanel9ComponentShown(evt); 
+            }
+        });
+
         panelTab.addTab("Logout", jPanel9);
 
         // tampilan bagian panel tab utama
@@ -1011,14 +1017,25 @@ public class FormUtama extends javax.swing.JFrame {
 
     // button cetak tiket
     public void btnCetakTiketActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        dataPenjualan.setDataTiket();
-        dataPenjualan.showDataBayar();
+        if(inputName.getText().isEmpty() || inputNik.getText().isEmpty() || inputTiket.getSelectedItem().equals("- Pilih Kategori Tiket -") || inputMatch.getSelectedItem().equals("- Pilih Pertandingan -") || inputJumlah.getText().isEmpty() ) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong Yaa!!");
+        } else {
+            dataPenjualan.setDataTiket();
+            dataPenjualan.showDataBayar();
+            invoiceDialog.setVisible(true);
+        }
         
-        invoiceDialog.setVisible(true);
     }   
     
     // button logout
     private void btnLougoutMouseListener(java.awt.event.MouseEvent evt) {
+        FormLogin login = new FormLogin();
+
+        login.setVisible(true);
+        this.dispose();
+    }
+
+    private void jPanel9ComponentShown(java.awt.event.ComponentEvent evt) {
         FormLogin login = new FormLogin();
 
         login.setVisible(true);
@@ -1059,8 +1076,11 @@ public class FormUtama extends javax.swing.JFrame {
     }
 
     // Invoice Dialog
+    public javax.swing.JDialog getInvoiceDialog() {
+        return invoiceDialog;
+    } 
     public javax.swing.JTextField getInputBayar() {
-        return this.inputBayar;
+        return inputBayar;
     }
 
     public javax.swing.JLabel getOutJumlah() {
@@ -1086,10 +1106,22 @@ public class FormUtama extends javax.swing.JFrame {
     public javax.swing.JLabel getOutTotal() {
         return outTotal;
     }
+    
+    // button bayar invoice dialog
+    private void btnBayarActionPerformed(java.awt.event.ActionEvent evt) {  
+        if(inputBayar.getText().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(null,"Data Tidak Boleh Kosong!!!");
+        } else {
+            dataPenjualan.bayarTiket();
+            dataPenjualan.showDataPenjualan();
 
-    private void btnBayarActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        dataPenjualan.bayarTiket();
-        dataPenjualan.showDataPenjualan();
+            inputName.setText("");
+            inputNik.setText("");
+            inputTiket.setSelectedIndex(0);
+            inputMatch.setSelectedIndex(0);
+            inputJumlah.setText("");
+            inputBayar.setText("");
+        }                                    
     }         
     
     // Pertandingan
@@ -1105,9 +1137,19 @@ public class FormUtama extends javax.swing.JFrame {
         return this.tanggalMain;
     }
     
+    // button Pertandingan Baru
     public void pertandinganBaruActionPerformed(java.awt.event.ActionEvent evt) {
-        dataPenjualan.setTabelPertandingan();
-        dataPenjualan.setDataPertandingan();
+
+        if(timKandang.getText().isEmpty() || timTandang.getText().isEmpty() || tanggalMain.getDate() == null) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong!!!");
+        } else {
+            dataPenjualan.setTabelPertandingan();
+            dataPenjualan.setDataPertandingan();
+
+            timKandang.setText("");
+            timTandang.setText("");
+            tanggalMain.setCalendar(null);
+        }
     } 
 
 

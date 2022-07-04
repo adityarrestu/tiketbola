@@ -83,19 +83,25 @@ public class DataPenjualan extends Tiket implements PenjualanTiketInter {
     public void bayarTiket() {
         super.setBayar(Double.parseDouble(mainForm.getInputBayar().getText()));
         super.setKembalian(super.getBayar() - super.getTotal());
-        javax.swing.JOptionPane.showMessageDialog(null, super.getKembalian());
+        if(super.getKembalian() < 0 ) {
+            javax.swing.JOptionPane.showMessageDialog(null,"Uangnya Kurang!!!");
+        } else{
+            javax.swing.JOptionPane.showMessageDialog(null, super.getKembalian());
+    
+            Object[] row = {
+                super.getNama(),
+                super.getNik(),
+                super.getKategori(),
+                super.getPertandingan(),
+                super.getJumlah(),
+                super.getTotal(),
+                super.getBayar(),
+                super.getKembalian()
+            };
+            mainForm.getTabel(mainForm.getTabelRiwayat()).addRow(row);
 
-        Object[] row = {
-            super.getNama(),
-            super.getNik(),
-            super.getKategori(),
-            super.getPertandingan(),
-            super.getJumlah(),
-            super.getTotal(),
-            super.getBayar(),
-            super.getKembalian()
-        };
-        mainForm.getTabel(mainForm.getTabelRiwayat()).addRow(row);
+            mainForm.getInvoiceDialog().dispose();
+        }
     }
 
     @Override
