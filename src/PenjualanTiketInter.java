@@ -1,28 +1,19 @@
 public interface PenjualanTiketInter {
     
+    // fungsi interface untuk polimorfisme
     public double hargaTiket(String jenis);
 
-    public double hitungPenjualanTiket();
-
-    public int jumlahTiketTerjual();
-
-    public int jumlahTiketKategori1();
-
-    public int jumlahTiketBronze();
-
-    public int jumlahTiketSilver();
-
-    public int jumlahTiketGold();
-
-    public int jumlahTiketVip();
-    
-    public int jumlahTiketVvip();
-
     public void showDataPenjualan();
+
+    public void jumlahTiket();
 
     public void bayarTiket();
     
     public void showDataBayar();
 
     public void setDataTiket();
+
+    public void setTabelPertandingan();
+
+    public void setDataPertandingan();
 }

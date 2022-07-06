@@ -122,15 +122,17 @@ public class FormUtama extends javax.swing.JFrame {
         jPanel14 = new javax.swing.JPanel();
         tabelPertandingan = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        
-
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+
+        invoiceDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        invoiceDialog.setBackground(new java.awt.Color(0, 153, 153));
+        invoiceDialog.setResizable(false);
+        
 
         jPanel15.setBackground(new java.awt.Color(0, 153, 153));
 
         inputBayar.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        inputBayar.setText("");
 
         textTitle.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
         textTitle.setForeground(new java.awt.Color(255, 255, 255));
@@ -162,29 +164,28 @@ public class FormUtama extends javax.swing.JFrame {
 
         outNama.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         outNama.setForeground(new java.awt.Color(255, 255, 255));
-        outNama.setText("");
+        outNama.setText("tiket");
 
         outNik.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         outNik.setForeground(new java.awt.Color(255, 255, 255));
-        outNik.setText("");
+        outNik.setText("tiket");
 
         outKategoriInvoice.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         outKategoriInvoice.setForeground(new java.awt.Color(255, 255, 255));
-        outKategoriInvoice.setText("");
+        outKategoriInvoice.setText("tiket");
 
         outPertandingan.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         outPertandingan.setForeground(new java.awt.Color(255, 255, 255));
-        outPertandingan.setText("");
+        outPertandingan.setText("tiket");
 
         outJumlah.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         outJumlah.setForeground(new java.awt.Color(255, 255, 255));
-        outJumlah.setText("");
+        outJumlah.setText("tiket");
 
         outTotal.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         outTotal.setForeground(new java.awt.Color(255, 255, 255));
-        outTotal.setText("");
+        outTotal.setText("tiket");
 
-        // button bayar
         btnBayar.setBackground(new java.awt.Color(51, 153, 255));
         btnBayar.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         btnBayar.setForeground(new java.awt.Color(255, 255, 255));
@@ -194,7 +195,7 @@ public class FormUtama extends javax.swing.JFrame {
                 btnBayarActionPerformed(evt);
             }
         });
-        // layout invoice dialog
+
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
@@ -203,32 +204,31 @@ public class FormUtama extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(textTitle, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel15Layout.createSequentialGroup()
+                        .addComponent(textTitle)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel15Layout.createSequentialGroup()
                                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(textTotal)
                                     .addComponent(textJumlah)
                                     .addComponent(textKategori)
                                     .addComponent(textNik)
-                                    .addComponent(textNama))
-                                .addGap(56, 56, 56)
+                                    .addComponent(textNama)
+                                    .addComponent(textPertandingan))
+                                .addGap(63, 63, 63)
                                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(outTotal)
                                     .addComponent(outJumlah)
                                     .addComponent(outPertandingan)
                                     .addComponent(outKategoriInvoice)
                                     .addComponent(outNik)
-                                    .addComponent(outNama))))
-                        .addContainerGap(356, Short.MAX_VALUE))
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(outNama)))
                             .addGroup(jPanel15Layout.createSequentialGroup()
-                                .addComponent(inputBayar, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(inputBayar, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0)
-                                .addComponent(btnBayar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(textPertandingan))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(btnBayar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 78, Short.MAX_VALUE))))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,46 +236,55 @@ public class FormUtama extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(textTitle)
                 .addGap(26, 26, 26)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textNama)
-                    .addComponent(outNama))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textNik)
-                    .addComponent(outNik))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textKategori)
-                    .addComponent(outKategoriInvoice))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textPertandingan)
-                    .addComponent(outPertandingan))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textJumlah)
-                    .addComponent(outJumlah))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textTotal)
-                    .addComponent(outTotal))
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addComponent(textNama)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textNik)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textKategori)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textPertandingan)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textJumlah)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textTotal))
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addComponent(outNama)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(outNik)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(outKategoriInvoice)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(outPertandingan)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(outJumlah)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(outTotal)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnBayar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBayar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(inputBayar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(invoiceDialog.getContentPane());
-        invoiceDialog.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout invoiceDialogLayout = new javax.swing.GroupLayout(invoiceDialog.getContentPane());
+        invoiceDialog.getContentPane().setLayout(invoiceDialogLayout);
+        invoiceDialogLayout.setHorizontalGroup(
+            invoiceDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, invoiceDialogLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        invoiceDialogLayout.setVerticalGroup(
+            invoiceDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(invoiceDialogLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
+       
         // setting posisi untuk invoice dialog
         invoiceDialog.pack();
         invoiceDialog.setLocationRelativeTo(null);
@@ -881,7 +890,7 @@ public class FormUtama extends javax.swing.JFrame {
 
         resetPertandingan.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         resetPertandingan.setForeground(new java.awt.Color(255, 255, 255));
-        resetPertandingan.setText("Reset");
+        resetPertandingan.setText("");
 
         // layout tab pertandingan
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
@@ -1106,6 +1115,10 @@ public class FormUtama extends javax.swing.JFrame {
     public javax.swing.JLabel getOutTotal() {
         return outTotal;
     }
+
+    public javax.swing.JLabel getOutTotalKembalian() {
+        return outTotalKembalian;
+    }
     
     // button bayar invoice dialog
     private void btnBayarActionPerformed(java.awt.event.ActionEvent evt) {  
@@ -1267,5 +1280,6 @@ public class FormUtama extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JTable tabelPertandingan;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel outTotalKembalian;
     // End of variables declaration                   
 }
